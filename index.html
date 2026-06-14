@@ -12,9 +12,9 @@
       --surface: #121820;
       --card: #1A2430;
       --accent: #E94560;
-      --accent-glow: rgba(233,69,96,0.25);
+      --accent-glow: rgba(233,69,96,0.2);
       --text: #E8EAED;
-      --muted: #8892A4;
+      --muted: #6B7A8F;
       --radius: 14px;
     }
     body {
@@ -25,100 +25,125 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 1.5rem;
+      padding: 2.5rem 1rem 4rem;
     }
-    h1 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 2.5rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-      max-width: 720px;
+    .container {
+      max-width: 780px;
       width: 100%;
     }
-    .card {
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    header .subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+    .shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .shortcut {
       background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.2rem 1rem;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
       text-decoration: none;
       color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, var(--accent-glow), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .card:hover::before { opacity: 1; }
-    .card-icon {
-      font-size: 1.5rem;
-      line-height: 1;
-      z-index: 1;
-    }
-    .card-label {
       font-size: 0.8rem;
       font-weight: 500;
-      text-align: center;
-      z-index: 1;
-      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid transparent;
+      transition: all 0.2s;
     }
-    .card:hover .card-label { color: var(--text); }
-    .footer {
-      margin-top: 3rem;
+    .shortcut:hover {
+      border-color: var(--accent);
+      background: #1E2A3A;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      color: var(--muted);
       font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #1E2A3A;
+    }
+    .embed-wrap {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #1E2A3A;
+    }
+    .embed-wrap iframe {
+      border: 0;
+      width: 100%;
+      height: 520px;
+      display: block;
+    }
+    .footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.7rem;
       color: var(--muted);
-      opacity: 0.5;
+      opacity: 0.4;
+      line-height: 1.6;
     }
-    @media (max-width: 400px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      body { padding: 2rem 1rem; }
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
     }
+    .footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
-  <h1>✦ arisson</h1>
-  <p class="subtitle">dashboard pessoal</p>
+  <div class="container">
+    <header>
+      <h1>✦ arisson</h1>
+      <p class="subtitle">dashboard pessoal — links ao vivo do Raindrop</p>
+    </header>
 
-  <div class="grid">
-    <a href="https://chatgpt.com" class="card"><span class="card-icon">🤖</span><span class="card-label">ChatGPT</span></a>
-    <a href="https://claude.ai" class="card"><span class="card-icon">🟣</span><span class="card-label">Claude AI</span></a>
-    <a href="https://clc.is/amls2" class="card"><span class="card-icon">⚡</span><span class="card-label">AMLS</span></a>
-    <a href="https://mail.google.com" class="card"><span class="card-icon">✉️</span><span class="card-label">Gmail</span></a>
-    <a href="https://calendar.google.com" class="card"><span class="card-icon">📅</span><span class="card-label">Calendar</span></a>
-    <a href="https://drive.google.com" class="card"><span class="card-icon">📁</span><span class="card-label">Drive</span></a>
-    <a href="https://github.com/arissonnn" class="card"><span class="card-icon">💻</span><span class="card-label">GitHub</span></a>
-    <a href="https://scholar.google.com.br" class="card"><span class="card-icon">🎓</span><span class="card-label">Scholar</span></a>
-    <a href="https://pubmed.ncbi.nlm.nih.gov" class="card"><span class="card-icon">🔬</span><span class="card-label">PubMed</span></a>
-    <a href="https://www.uptodate.com" class="card"><span class="card-icon">📖</span><span class="card-label">UpToDate</span></a>
-    <a href="https://www.youtube.com" class="card"><span class="card-icon">▶️</span><span class="card-label">YouTube</span></a>
-    <a href="https://www.google.com/maps" class="card"><span class="card-icon">📍</span><span class="card-label">Maps</span></a>
-    <a href="https://telegram.org" class="card"><span class="card-icon">💬</span><span class="card-label">Telegram</span></a>
-    <a href="https://app.raindrop.io" class="card"><span class="card-icon">🏷️</span><span class="card-label">Raindrop</span></a>
+    <div class="shortcuts">
+      <a href="https://chatgpt.com" class="shortcut">🤖 ChatGPT</a>
+      <a href="https://claude.ai" class="shortcut">🟣 Claude</a>
+      <a href="https://clc.is/amls2" class="shortcut">⚡ AMLS</a>
+      <a href="https://mail.google.com" class="shortcut">✉️ Gmail</a>
+      <a href="https://calendar.google.com" class="shortcut">📅 Calendar</a>
+      <a href="https://drive.google.com" class="shortcut">📁 Drive</a>
+      <a href="https://github.com/arissonnn" class="shortcut">💻 GitHub</a>
+      <a href="https://scholar.google.com.br" class="shortcut">🎓 Scholar</a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov" class="shortcut">🔬 PubMed</a>
+      <a href="https://www.uptodate.com" class="shortcut">📖 UpToDate</a>
+    </div>
+
+    <div class="divider">todos os bookmarks</div>
+
+    <div class="embed-wrap">
+      <iframe allowfullscreen src="https://arisson_danilo.raindrop.page/arisson-dashboard-71979663/embed" title="arisson dashboard"></iframe>
+    </div>
+
+    <div class="footer">
+      <a href="https://app.raindrop.io">+ adicionar link via Raindrop</a>
+      <br>não indexado · <a href="https://clc.is/ari">clc.is/ari</a>
+    </div>
   </div>
-
-  <div class="footer">árison danilo · não indexado</div>
 </body>
 </html>
